@@ -5,31 +5,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class userhomeController {
-	private int count = 0;
+public class UserHomeController {
+	private int count;
 	
-	public userhomeController() {
+	public UserHomeController() {
 		count = 0;
 	}
 	
-	@RequestMapping("/user/home/main")
+	@RequestMapping("/user/home/getCount")
 	@ResponseBody
-	public String showMain() {
-		return "안녕하세요";
+	public int getCount() {
+		return count++;
 	}
-	@RequestMapping("/user/home/main2")
+	
+	@RequestMapping("/user/home/doSetCount")
 	@ResponseBody
-		public String showMain2() {
-			return "반갑습니다.";
-	}
-	@RequestMapping("/user/home/main3")
-	@ResponseBody
-		public String showMain3() {
-			return "또만나요";
-	}
-	@RequestMapping("/user/home/main4")
-	@ResponseBody
-		public int showMain4() {
-			return ++count;
+	public String doSetCount(int count) {
+		this.count = count;
+		return "count의 값이 " + this.count +"으로 초기화 되었습니다.";
 	}
 }
