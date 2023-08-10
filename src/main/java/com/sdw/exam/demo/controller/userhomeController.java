@@ -12,13 +12,13 @@ public class UserHomeController {
 		count = 0;
 	}
 	
-	@RequestMapping("/user/home/getCount")
+	@RequestMapping("/usr/home/getCount")
 	@ResponseBody
 	public int getCount() {
 		return count++;
 	}
 	
-	@RequestMapping("/user/home/doSetCount")
+	@RequestMapping("/usr/home/doSetCount")
 	@ResponseBody
 	public String doSetCount(int count) {
 		this.count = count;
