@@ -3,7 +3,6 @@ package com.sdw.exam.demo.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.sdw.exam.demo.repository.ArticleRepository;
 import com.sdw.exam.demo.vo.Article;
@@ -37,6 +36,5 @@ public class ArticleService {
 
 	public void modifyArticle(int id, String title, String body) {
 		articleRepository.modifyArticle(id, title, body);
-
 	}
 }
