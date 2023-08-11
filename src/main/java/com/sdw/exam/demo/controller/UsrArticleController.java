@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sdw.exam.demo.vo.Article;
 
 @Controller
-public class UserArticleController {
+public class UsrArticleController {
 	// 인스턴스 변수 시작
 	private int articleLastId;
 	private List<Article> articles;
 	// 인스턴스 변수 끝
 	
 	// 생성자
-	public UserArticleController() {
+	public UsrArticleController() {
 		articleLastId = 0;
 		articles = new ArrayList<>();
 		
@@ -61,23 +61,31 @@ public class UserArticleController {
 		articles.remove(article);
 		
 	}
+	
+	private void modifyArticle(int id, String title, String body) {
+		Article article = getArticle(id);
+		
+		article.setTitle(title);
+		article.setBody(body);
+		
+	}
 	// 서비스 메서드 끝
 
 	// 액션 메서드 시작
-	@RequestMapping("/user/article/doAdd")
+	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
 	public Article doAdd(String title, String body) {
 		Article article = writeArticle(title, body);
 		return article;
 	}
 	
-	@RequestMapping("/user/article/getArticles")
+	@RequestMapping("/usr/article/getArticles")
 	@ResponseBody
 	public List<Article> getArticles() {
 		return articles;
 	}
 	
-	@RequestMapping("/user/article/doDelete")
+	@RequestMapping("/usr/article/doDelete")
 	@ResponseBody
 	public String doDelete(int id) {
 		Article article = getArticle(id);
@@ -89,6 +97,20 @@ public class UserArticleController {
 		deleteArticle(id);
 		
 		return id + "번 게시물이 삭제되었습니다.";
+	}
+	
+	@RequestMapping("/usr/article/doModify")
+	@ResponseBody
+	public String doDelete(int id, String title, String body) {
+		Article article = getArticle(id);
+		
+		if ( article == null ) {
+			return id + "번 게시물이 존재하지 않습니다.";
+		}
+		
+		modifyArticle(id, title, body);
+		
+		return id + "번 게시물이 수정되었습니다.";
 	}
 	// 액션 메서드 끝
 	
