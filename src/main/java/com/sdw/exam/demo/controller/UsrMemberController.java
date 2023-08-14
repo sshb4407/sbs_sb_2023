@@ -11,15 +11,19 @@ import com.sdw.exam.demo.vo.Member;
 public class UsrMemberController {
 	private MemberService memberService;
 	
-	public  UsrMemberController(MemberService memberService) {
-			this.memberService = memberService;
+	public UsrMemberController(MemberService memberService) {
+		this.memberService = memberService;
 	}
 	
 	@RequestMapping("/usr/member/doJoin")
 	@ResponseBody
-	public Member doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
+	public Object doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
 			String email) {
 		int id = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
+		
+		if ( id == -1 ) {
+			return "해당 로그인 아이디는 이미 사용중입니다.";
+		}
 		
 		Member member = memberService.getMemberById(id);
 		
