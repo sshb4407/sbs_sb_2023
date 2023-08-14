@@ -19,6 +19,32 @@ public class UsrMemberController {
 	@ResponseBody
 	public Object doJoin(String loginId, String loginPw, String name, String nickname, String cellphoneNo,
 			String email) {
+		if ( loginId == null || loginId.trim().length() == 0 ) {
+				return "loginId(을)를 입력해주세요.";
+		}
+		
+		if ( loginId == null || loginId.trim().length() == 0 ) {
+				return "loginId(을)를 입력해주세요.";
+		}		
+		if ( loginId == null || loginPw.trim().length() == 0 ) {
+				return "loginPW(을)를 입력해주세요.";
+		}			
+		if ( loginId == null || name.trim().length() == 0 ) {
+				return "이름(을)를 입력해주세요.";
+		}
+		if ( nickname == null || nickname.trim().length() == 0 ) {
+				return "nickname(을)를 입력해주세요.";
+		}
+						
+		if ( cellphoneNo == null || cellphoneNo.trim().length() == 0 ) {
+				return "cellphoneNo(을)를 입력해주세요.";
+		}
+						
+		if ( email == null || email.trim().length() == 0 ) {
+				return "email(을)를 입력해주세요.";
+		}
+						
+			
 		int id = memberService.join(loginId, loginPw, name, nickname, cellphoneNo, email);
 		
 		if ( id == -1 ) {
