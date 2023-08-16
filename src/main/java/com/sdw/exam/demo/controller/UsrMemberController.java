@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sdw.exam.demo.service.MemberService;
 import com.sdw.exam.demo.vo.Member;
 import com.sdw.exam.demo.vo.ResultData;
-
 import jakarta.servlet.http.HttpSession;
 
 import com.sdw.exam.demo.util.Ut;

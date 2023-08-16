@@ -2,8 +2,6 @@ package com.sdw.exam.demo.service;
 
 import org.springframework.stereotype.Service;
 
-import org.springframework.stereotype.Service;
-
 import com.sdw.exam.demo.repository.MemberRepository;
 import com.sdw.exam.demo.util.Ut;
 import com.sdw.exam.demo.vo.Member;
